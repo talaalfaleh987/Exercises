@@ -1,21 +1,22 @@
 <div class="min-h-screen bg-base-200 flex items-center justify-center px-4">
   <div class="bg-base-100 shadow-xl rounded-2xl p-8 w-full max-w-md">
-    
-
     <div class="form-control w-full max-w-xs mx-auto">
-      <form [formGroup]="userForm">
-
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
         <label class="label">
           <span class="label-text">Full Name:</span>
         </label>
-        <input type="text" formControlName="fullName" placeholder="e.g. sara alharbi"
-          class="input input-bordered w-full max-w-xs" />
+        <input
+          type="text"
+          formControlName="fullName"
+          placeholder="e.g. sara alharbi"
+          class="input input-bordered w-full max-w-xs"
+        />
 
-        @if(userForm.controls['fullName'].touched){
+        @if (userForm.controls['fullName'].touched) {
           @if (userForm.controls['fullName'].errors?.['required']) {
             <span class="text-red-600">Please Enter Your Full Name!</span>
           }
-          @if (userForm.controls['fullName'].errors?.['minLength']) {
+          @if (userForm.controls['fullName'].errors?.['minlength']) {
             <span class="text-red-600">Min Length is 3</span>
           }
         }
@@ -23,10 +24,14 @@
         <label class="label mt-4">
           <span class="label-text">Email:</span>
         </label>
-        <input type="text" formControlName="emailId" placeholder="Email@gmail.com"
-          class="input input-bordered w-full max-w-xs" />
+        <input
+          type="text"
+          formControlName="emailId"
+          placeholder="Email@gmail.com"
+          class="input input-bordered w-full max-w-xs"
+        />
 
-        @if(userForm.controls['emailId'].touched){
+        @if (userForm.controls['emailId'].touched) {
           @if (userForm.controls['emailId'].errors?.['required']) {
             <span class="text-red-600">Please Enter Your Email!</span>
           }
@@ -38,10 +43,14 @@
         <label class="label mt-4">
           <span class="label-text">Password:</span>
         </label>
-        <input type="password" formControlName="password" placeholder="Password here"
-          class="input input-bordered w-full max-w-xs" />
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password here"
+          class="input input-bordered w-full max-w-xs"
+        />
 
-        @if(userForm.controls['password'].touched){
+        @if (userForm.controls['password'].touched) {
           @if (userForm.controls['password'].errors?.['required']) {
             <span class="text-red-600">Please Enter Your Password!</span>
           }
@@ -53,10 +62,14 @@
         <label class="label mt-4">
           <span class="label-text">Age:</span>
         </label>
-        <input type="text" formControlName="age" placeholder="e.g 18"
-          class="input input-bordered w-full max-w-xs" />
+        <input
+          type="text"
+          formControlName="age"
+          placeholder="e.g 18"
+          class="input input-bordered w-full max-w-xs"
+        />
 
-        @if(userForm.controls['age'].touched){
+        @if (userForm.controls['age'].touched) {
           @if (userForm.controls['age'].errors?.['required']) {
             <span class="text-red-600">Please Enter Your Age!</span>
           }
@@ -66,7 +79,7 @@
         }
 
         <label class="label cursor-pointer mt-4">
-          <span class="label-text" >Accept Terms</span>
+          <span class="label-text">Accept Terms</span>
           <input type="checkbox" formControlName="acceptTerm" class="checkbox" />
         </label>
 
@@ -74,15 +87,10 @@
           <span class="text-red-600">Please Check the terms</span>
         }
 
-        <button class="btn btn-primary w-full mt-6"
-          [disabled]="userForm.invalid"
-          (click)="onSubmit()">
+        <button class="btn btn-primary w-full mt-6" type="submit" [disabled]="userForm.invalid">
           Submit
         </button>
-
       </form>
     </div>
-  
-
   </div>
 </div>
