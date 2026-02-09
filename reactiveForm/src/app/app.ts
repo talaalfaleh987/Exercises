@@ -8,7 +8,7 @@ import { MaskPipe } from './pipes/mask-sens-pipe/mask-pipe';
   styleUrl: './app.css',
 })
 export class App {
-  name = 'tala Faleh';
-  n2 = '';
-  n3 = 1234;
+  fullName = 'tala Faleh';
+  emptyString = '';
+  numbers = 1234;
 }
