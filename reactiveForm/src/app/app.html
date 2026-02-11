@@ -1,9 +1,63 @@
-<h1>Exersice 1</h1>
-{{ fullName | mask: 12 }}<br />
-{{ emptyString | mask: 3 : '&' }}<br />
-{{ numbers | mask: 3 : '#' }}<br />
-<h1>Exersice 2:</h1>
-{{ 0 | statusLabel }}<br />
-{{ 1 | statusLabel }}<br />
-{{ 2 | statusLabel }}<br />
-{{ 3 | statusLabel }}
+<div class="min-h-screen flex flex-col items-center justify-center p-6">
+  <h1 class="font-extrabold text-3xl md:text-4xl mb-6">Exercise 3</h1>
+  <div class="card bg-base-200 p-6 w-full max-w-lg space-y-2 shadow-xl">
+    <app-toggle
+      [label]="text"
+      [initialOn]="true"
+      [disabled]="false"
+      (toggled)="onToggled($event)"
+    />
+    <div class="divider my-1"></div>
+    <app-toggle
+      [label]="'Disabled'"
+      [initialOn]="false"
+      [disabled]="true"
+      (toggled)="onToggled($event)"
+    />
+    <div class="divider my-1"></div>
+    <app-toggle
+      [label]="'Enable Notifications'"
+      [initialOn]="false"
+      [disabled]="false"
+      (toggled)="showNotifications($event)"
+    />
+    <div class="divider my-1"></div>
+    <app-toggle
+      [label]="'Delete Feature'"
+      [initialOn]="false"
+      [disabled]="false"
+      (toggled)="showConfirmation($event)"
+    />
+  </div>
+  @if (showToast()) {
+    <div class="toast toast-top toast-end">
+      <div
+        class="alert shadow-lg"
+        [class.alert-success]="toastMessage().includes('Enabled')"
+        [class.alert-error]="toastMessage().includes('Disabled')"
+      >
+        <span>{{ toastMessage() }}</span>
+      </div>
+    </div>
+  }
+  @if (showAlert()) {
+    <div class="toast toast-top toast-end">
+      <div class="alert alert-info shadow-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="stroke-current shrink-0 w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span>{{ alertMessage() }}</span>
+      </div>
+    </div>
+  }
+</div>
