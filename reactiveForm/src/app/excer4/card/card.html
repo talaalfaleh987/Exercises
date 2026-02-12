@@ -1,0 +1,16 @@
+<div class="card w-full max-w-md bg-base-100 shadow-2xl rounded-2xl overflow-hidden">
+  <figure>
+    <ng-content select="[cardImage]"></ng-content>
+  </figure>
+  <div class="card-body space-y-4">
+    <h2 class="card-title text-2xl font-bold">
+      <ng-content select="[cardHeader]"></ng-content>
+    </h2>
+    <div class="text-base-content/80">
+      <ng-content select="[cardBody]"></ng-content>
+    </div>
+    <div class="card-actions justify-end pt-4 border-t border-base-200">
+      <ng-content select="[cardFooter]"></ng-content>
+    </div>
+  </div>
+</div>
