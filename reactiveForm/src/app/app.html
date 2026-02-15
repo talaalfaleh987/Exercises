@@ -1,9 +1,2 @@
-<h1>Exersice 1</h1>
-{{ fullName | mask: 12 }}<br />
-{{ emptyString | mask: 3 : '&' }}<br />
-{{ numbers | mask: 3 : '#' }}<br />
-<h1>Exersice 2:</h1>
-{{ 0 | statusLabel }}<br />
-{{ 1 | statusLabel }}<br />
-{{ 2 | statusLabel }}<br />
-{{ 3 | statusLabel }}
+<h1 class="text-xl font-bold mb-4">Todos</h1>
+<app-todo-table [todos]="(todos$ | async) ?? []"></app-todo-table>
