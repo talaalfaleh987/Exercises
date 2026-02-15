@@ -19,10 +19,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+           "src/favicon.ico", "src/assets"
             ],
             "styles": ["node_modules/bootstrap-icons/font/bootstrap-icons.css", "src/styles.css"]
           },
