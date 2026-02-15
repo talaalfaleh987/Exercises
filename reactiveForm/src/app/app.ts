@@ -1,11 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { StatusLabelPipe } from './pipes/statusLabel/status-label-pipe';
 import { Toggle } from './excer3/toggle/toggle';
 import { Card } from './excer4/card/card';
+import { TodoTable } from './excer5/todo-table/todo-table';
+import { TodoService } from './services/todo-service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [Toggle,Card],
+imports: [Toggle,Card, TodoTable,AsyncPipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -39,4 +42,6 @@ export class App {
       this.showAlert.set(false);
     }, 2000);
   }
+  private todoService = inject(TodoService);
+  todos$ = this.todoService.getTodos();
 }

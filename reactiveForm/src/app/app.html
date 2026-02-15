@@ -64,3 +64,5 @@
     </div>
   </app-card>
 </div>
+<h1 class="text-xl font-bold mb-4">Todos</h1>
+<app-todo-table [todos]="(todos$ | async) ?? []"></app-todo-table>
