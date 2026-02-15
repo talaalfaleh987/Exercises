@@ -1,11 +1,11 @@
-import { MaskPipe } from './pipes/mask-sens-pipe/mask-pipe';
 import { Component, signal } from '@angular/core';
 import { StatusLabelPipe } from './pipes/statusLabel/status-label-pipe';
 import { Toggle } from './excer3/toggle/toggle';
+import { Card } from './excer4/card/card';
 
 @Component({
   selector: 'app-root',
-  imports: [Toggle],
+  imports: [Toggle,Card],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
