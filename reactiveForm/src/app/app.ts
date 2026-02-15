@@ -16,8 +16,8 @@ export class App {
   showAlert = signal(false);
   alertMessage = signal('');
 
-  onToggled(value: boolean) {
-    if (value === false) {
+  onToggleText(value: boolean) {
+    if (!value) {
       this.text = 'Enable';
     } else {
       this.text = 'Disable';

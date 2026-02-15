@@ -19,8 +19,7 @@ export class Toggle {
     if (this.disabled()) {
       return;
     }
-    const checked = (event.target as HTMLInputElement).checked;
-    this.isOn.set(checked);
-    this.toggled.emit(checked);
+    this.isOn.update((value) => !value);
+    this.toggled.emit(this.isOn());
   }
 }

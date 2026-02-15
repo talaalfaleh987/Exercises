@@ -5,15 +5,10 @@
       [label]="text"
       [initialOn]="true"
       [disabled]="false"
-      (toggled)="onToggled($event)"
+      (toggled)="onToggleText($event)"
     />
     <div class="divider my-1"></div>
-    <app-toggle
-      [label]="'Disabled'"
-      [initialOn]="false"
-      [disabled]="true"
-      (toggled)="onToggled($event)"
-    />
+    <app-toggle [label]="'Disabled'" [initialOn]="false" [disabled]="true" />
     <div class="divider my-1"></div>
     <app-toggle
       [label]="'Enable Notifications'"
@@ -43,19 +38,7 @@
   @if (showAlert()) {
     <div class="toast toast-top toast-end">
       <div class="alert alert-info shadow-lg">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          class="stroke-current shrink-0 w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
+        <i class="bi bi-info-circle"></i>
         <span>{{ alertMessage() }}</span>
       </div>
     </div>
