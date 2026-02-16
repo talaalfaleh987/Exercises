@@ -9,17 +9,13 @@
       </tr>
     </thead>
     <tbody>
-      @for (t of todos(); track t.id) {
+      @for (todo of todos(); track todo.id) {
         <tr>
-          <td>{{ t.id }}</td>
-          <td>{{ t.userId }}</td>
-          <td>{{ t.title }}</td>
+          <td>{{ todo.id }}</td>
+          <td>{{ todo.userId }}</td>
+          <td>{{ todo.title }}</td>
           <td>
-            @if (t.completed) {
-              Yes
-            } @else {
-              No
-            }
+            {{ todo.completed }}
           </td>
         </tr>
       }

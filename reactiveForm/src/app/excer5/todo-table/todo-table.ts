@@ -5,7 +5,6 @@ import { Todo } from '../../models/todo.model';
   selector: 'app-todo-table',
   imports: [],
   templateUrl: './todo-table.html',
-  styleUrl: './todo-table.css',
 })
 export class TodoTable {
   todos = input<Todo[]>([]);

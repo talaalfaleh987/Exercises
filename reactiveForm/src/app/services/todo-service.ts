@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { Todo } from '../models/todo.model';
 
 @Injectable({
@@ -11,6 +11,11 @@ export class TodoService {
   private readonly url = 'https://jsonplaceholder.typicode.com/todos';
 
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.url).pipe(catchError(() => of([])));
+    return this.http.get<Todo[]>(this.url).pipe(
+      catchError((error) => {
+        console.error(error);
+        return throwError(() => new Error('Error fetching data'));
+      }),
+    );
   }
 }

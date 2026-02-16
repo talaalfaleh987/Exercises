@@ -64,5 +64,10 @@
     </div>
   </app-card>
 </div>
+@let todo = (todos$ | async) ?? [];
 <h1 class="text-xl font-bold mb-4">Todos</h1>
-<app-todo-table [todos]="(todos$ | async) ?? []"></app-todo-table>
+@if (!errorMsg) {
+  <app-todo-table [todos]="todo"></app-todo-table>
+} @else {
+  <p class="text-red-600">{{ errorMsg }}</p>
+}
